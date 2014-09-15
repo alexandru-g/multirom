@@ -265,6 +265,8 @@ int main(int argc, char *argv[])
         goto exit;
     }
 
+    sleep(2);
+
     fstab = fstab_auto_load();
     if(!fstab)
         goto exit;
