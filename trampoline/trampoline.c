@@ -265,7 +265,12 @@ int main(int argc, char *argv[])
         goto exit;
     }
 
-    sleep(2);
+    // wait until mmcblk is mountable
+    if(wait_for_file("/dev/block/mmcblk0p47", 5) < 0)
+    {
+        ERROR("Waiting too long for /data");
+        goto exit;
+    }
 
     fstab = fstab_auto_load();
     if(!fstab)

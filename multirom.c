@@ -1273,9 +1273,24 @@ int multirom_process_android_fstab(char *fstab_name, int has_fw, struct fstab_pa
     if(!tab)
         goto exit;
 
-    if(fstab_disable_part(tab, "/system") || fstab_disable_part(tab, "/data") || fstab_disable_part(tab, "/cache")) {
-        //do nothing...
-        // goto exit;
+    //do not bail out when we can't find a partition if fstab to disable
+    if (fstab_disable_part(tab, "/system")) {
+        INFO("could not find /system to disable in fstab");
+    }
+    else {
+        INFO("disabled /system in fstab");
+    }
+    if (fstab_disable_part(tab, "/data")) {
+        INFO("could not find /data to disable in fstab");
+    }
+    else {
+        INFO("disabled /data in fstab");
+    }
+    if (fstab_disable_part(tab, "/cache")) {
+        INFO("could not find /cache to disable in fstab");
+    }
+    else {
+        INFO("disabled /cache in fstab");
     }
 
     if(has_fw)
