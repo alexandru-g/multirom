@@ -102,10 +102,10 @@ enum
 // Font sizes in 1/4 of a point
 enum
 {
-    SIZE_SMALL     = (DPI_MUL*7*6),
-    SIZE_NORMAL    = (DPI_MUL*10*6),
-    SIZE_BIG       = (DPI_MUL*13*6),
-    SIZE_EXTRA     = (DPI_MUL*15*6),
+    SIZE_SMALL     = (7*4),
+    SIZE_NORMAL    = (10*4),
+    SIZE_BIG       = (13*4),
+    SIZE_EXTRA     = (15*4),
 };
 
 extern uint32_t fb_width;
